@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onclick="startAnimation()" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>moving shape</title>
-<style>
-    .moving{
-     animation-name: m;
-     animation-duration: 10s;
-     
-    }
-    @keyframes m{
-        to{transform: translateX(800%)};
-    }
-</style>
-</head>
-<body onkeydown="
-movingShape(event)" >
-    <canvas id="myCanvas" width="100" height="80" style="border:1px solid #000000; background-color: black;"  ></canvas>
-
-    <script>
-        function movingShape(){
-            let canvas = document.getElementById("myCanvas");
-            if(event.key ==='ArrowLeft'){
-             canvas.classList.add("moving");
-            }
-            console.log(canvas);
-            console.log(event.key);
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>animate</title>
+    <style>
+        .animate__animated.animate__bounce {
+            --animate-duration: 2s;
         }
-    </script>
+
+        /* Initially hide the element */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Your code -->
+
+<h1 class="b hidden">An animated element</h1>
+
+<script>
+    function startAnimation() {
+        const element = document.querySelector('.b');
+
+        // Remove the 'hidden' class to show the element
+        element.classList.remove('hidden');
+
+        // Add the animation classes
+        element.classList.add('animate__animated', 'animate__zoomInDown');
+
+        // Event listener for the animationend event
+        element.addEventListener('animationend', () => {
+            // Remove the animation classes after the animation ends
+            element.classList.remove('animate__animated', 'animate__zoomInDown');
+        });
+    }
+</script>
 </body>
 </html>

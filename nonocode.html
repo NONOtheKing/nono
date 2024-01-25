@@ -43,16 +43,17 @@
             position: absolute;
             top: 60%;
             right: 50%;
+            max-width: 800px !important;
             transform:translateX(50%);
-            padding: 6px ;
+            padding: 10px ;
             color: white;
             background-color: rgba(98, 26, 141, 0.3);
             border-radius: 50px;
-            height: 30px;
             text-align:center;
-            white-space: nowrap; /* Prevents line breaks */
+            white-space: auto; /* Prevents line breaks */
             overflow: hidden; /* Hides any overflow */
             font-size: 20px;
+            display: inline-block;
             
 }
      .output:focus {
@@ -74,8 +75,8 @@
 </head>
 <body>
     <label for="name"> write your data write it here👇👇 </label>
-     <input type="text" maxlength="15" class="input" onkeyup="input()
+     <input type="text" maxlength="auto" class="input" onkeyup="input()
      ">  
-    <p class="output"  ></p>
+    <div class="output"  ></div>
 </body>
 </html>
