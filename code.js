@@ -7,35 +7,8 @@
     }
 }*/
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-opositAlphabet = ['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
-const nono = [
-    "oooon",
-    "ooono",
-    "ooonn",
-    "oonoo",
-    "oonon",
-    "oonno",
-    "oonnn",
-    "onooo",
-    "onoon",
-    "onono",
-    "ononn",
-    "onnoo",
-    "onnon",
-    "onnno",
-    "onnnn",
-    "noooo",
-    "nooon",
-    "noono",
-    "noonn",
-    "nonoo",
-    "nonon",
-    "nonno",
-    "nonnn",
-    "nnooo",
-    "nnoon",
-    "nnono",
-];
+//opositAlphabet = ['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
+
 function input() {
     let inputWord = document.querySelector('.input').value.toLowerCase();//we put 'tolowercase()' because ower array contain just lowercase 
     let outputWord = "";
@@ -45,12 +18,15 @@ function input() {
         let index = alphabet.indexOf(inputChar);// index take the number of the letter in the array,if the letter not exists then he well take -1
         
         if (index !== -1) {
-            outputWord += opositAlphabet[index];
+            outputWord += nono[index];
         } else {
             outputWord += inputChar; // Keep non-alphabetic characters unchanged
         }
     }
-    let output = "";
+    document.querySelector('.output').innerHTML = outputWord;  
+ 
+ 
+    /*let output = "";
     for (let i = 0; i < outputWord.length; i++){
          let outputvalue  = outputWord[i]
          let index01 = alphabet.indexOf(outputvalue);
@@ -60,8 +36,7 @@ function input() {
             output += outputvalue;
          };
         };
-     
-        document.querySelector('.output').innerHTML = output;  
+        */
 
 };
 
@@ -79,4 +54,74 @@ function input() {
                 index01 += inputChar; // Keep non-alphabetic characters unchanged
             };
             outputWord += index01;
-            }*/    
+            }*/ 
+            const nono = [
+                "oooon",
+                "ooono",
+                "ooonn",
+                "oonoo",
+                "oonon",
+                "oonno",
+                "oonnn",
+                "onooo",
+                "onoon",
+                "onono",
+                "ononn",
+                "onnoo",
+                "onnon",
+                "onnno",
+                "onnnn",
+                "noooo",
+                "nooon",
+                "noono",
+                "noonn",
+                "nonoo",
+                "nonon",
+                "nonno",
+                "nonnn",
+                "nnooo",
+                "nnoon",
+                "nnono",
+            ];   
+            function input01() {
+                let inputWord = document.querySelector('.Decode').value.toLowerCase();
+                let outputWord01 = "";
+                let i = 0;
+            
+                while (i < inputWord.length) {
+                    console.log("a:"+inputWord.length);
+                    console.log(i);
+                    if (inputWord[i] === ' ') {
+                        // If the current character is a space, append it to the output
+                        outputWord01 += ' ';
+                        i++;
+                        console.log(i)
+                    } else {
+                        let foundPattern = false;
+            
+                        for (let len = 6; len >= 1; len--) {
+                            let inputChar = inputWord.substring(i, i + len);
+                            let index = nono.indexOf(inputChar);
+                            if (index !== -1) {
+                                outputWord01 += alphabet[index];
+                                i += len; // Move the index by the length of the matched pattern
+                                console.log(i);
+                                foundPattern = true;
+                                break;
+                            }
+                        }
+            
+                        if (!foundPattern ) {
+                            // If no match is found, move to the next character
+                            outputWord01 += inputWord[i];
+                            i++; // Move the index by 1
+                          
+                        }
+                    }
+                } 
+                if (inputWord === 'nono') {
+                    outputWord01 = 'YEAH YEAH!!!';
+                };
+            
+                document.querySelector('.output01').innerHTML = outputWord01;
+            };
