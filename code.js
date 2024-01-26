@@ -83,45 +83,41 @@ function input() {
                 "nnoon",
                 "nnono",
             ];   
-            function input01() {
-                let inputWord = document.querySelector('.Decode').value.toLowerCase();
-                let outputWord01 = "";
-                let i = 0;
-            
-                while (i < inputWord.length) {
-                    console.log("a:"+inputWord.length);
-                    console.log(i);
-                    if (inputWord[i] === ' ') {
-                        // If the current character is a space, append it to the output
-                        outputWord01 += ' ';
-                        i++;
-                        console.log(i)
-                    } else {
-                        let foundPattern = false;
-            
-                        for (let len = 6; len >= 1; len--) {
-                            let inputChar = inputWord.substring(i, i + len);
-                            let index = nono.indexOf(inputChar);
-                            if (index !== -1) {
-                                outputWord01 += alphabet[index];
-                                i += len; // Move the index by the length of the matched pattern
-                                console.log(i);
-                                foundPattern = true;
-                                break;
-                            }
-                        }
-            
-                        if (!foundPattern ) {
-                            // If no match is found, move to the next character
-                            outputWord01 += inputWord[i];
-                            i++; // Move the index by 1
-                          
-                        }
-                    }
-                } 
-                if (inputWord === 'nono') {
-                    outputWord01 = 'YEAH YEAH!!!';
-                };
-            
-                document.querySelector('.output01').innerHTML = outputWord01;
-            };
+function input01() {
+    let inputWord = document.querySelector('.Decode').value.toLowerCase();
+    let outputWord01 = "";
+    let i = 0;
+
+    while (i < inputWord.length) {
+        let foundPattern = false;
+
+        for (let len = 6; len >= 1; len--) {
+            let inputChar = inputWord.substring(i, i + len);
+            let index = nono.indexOf(inputChar);
+            if (index !== -1) {
+                outputWord01 += `<div class="fade-out" style="display: inline-block;">${alphabet[index]}</div>`;
+                i += len; // Move the index by the length of the matched pattern
+                foundPattern = true;
+                break;
+            }
+        }
+
+        if (!foundPattern) {
+            // If no match is found, move to the next character
+            outputWord01 += `<div class="fade-out" style="display: inline-block;">${inputWord[i]}</div>`;
+            i++; // Move the index by 1
+        }
+    }
+
+    if (inputWord === 'nono') {
+        outputWord01 = 'YEAH YEAH!!!';
+    }
+
+    // Update the output text and trigger the animation
+    let outputElement = document.querySelector('.output01');
+    
+    outputElement.classList.add('fade-out'); // Add a class for fade-out animation
+ 
+    outputElement.innerHTML = outputWord01;
+
+};

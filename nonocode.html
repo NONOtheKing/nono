@@ -44,6 +44,7 @@
             border-radius: 50px;
             overflow: hidden;
             margin-top: 50px;
+
         }
         label{
             text-align: center;
@@ -53,7 +54,15 @@
             outline: none; /* Remove default focus outline */
             background-color: antiquewhite;
         }
-
+        .fade-out{
+            animation-name: text;
+            animation-duration: 0.5s;
+            animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+@keyframes text{
+    from{font-size: 0px};
+    to{font-size: 20px};
+}
     </style>
 </head>
 <body >
@@ -63,7 +72,7 @@
         <input type="text" class="input name animate__animated animate__flipInX " onkeyup="input()" data-anijs="if: click, do: pulse animated" >  
         <input type="text" class="Decode name animate__animated animate__flipInX" data-anijs="if: click, do: pulse animated" onkeyup="input01()">
         <div class="output animate__animated animate__zoomInDown"></div>
-        <div class="output01 animate__animated animate__zoomInDown" ></div>
+        <div  class="output01 animate__animated animate__zoomInDown" ></div>
     </div>
     <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script> 
   
