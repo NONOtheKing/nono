@@ -9,9 +9,18 @@
     <title>nonocode</title>
 
     <style>
-        body{
-            background-color: rgb(0, 0, 0);
-            color: aliceblue;
+      body{
+         background-color: rgb(0, 0, 0);
+         color: rgb(105, 67, 110);
+        }
+        .b{
+          position: relative;
+          left: 90%;
+        }
+        h1{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .content{
             display: grid;
@@ -32,19 +41,33 @@
             white-space: nowrap;
             margin-bottom: 5px;
             overflow:-moz-hidden-unscrollable;
+            background-size: 200px;
+            color: rgb(0, 0, 0);
         }
         .output , .output01{
-            text-align: center;
+            text-align: left;
             font-size:20px ;
-            max-width: 600px !important;
             height: 300px;
             line-height: 20px;
             color: white;
             background-color: rgba(98, 26, 141, 0.3);
-            border-radius: 50px;
-            overflow: hidden;
+            border-radius: 10px;
+            overflow: scroll;
             margin-top: 50px;
 
+        }
+        .output{
+            width: 800px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            background-size: 200px;
+           
+        }
+        .output01{
+          width:600px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            background-size: 200px;
         }
         label{
             text-align: center;
