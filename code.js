@@ -95,7 +95,7 @@ function input01() {
             let inputChar = inputWord.substring(i, i + len);
             let index = nono.indexOf(inputChar);
             if (index !== -1) {
-                outputWord01 += `<div class="fade-out" style="display: inline-block;">${alphabet[index]}</div>`;
+                outputWord01 += alphabet[index];
                 i += len; // Move the index by the length of the matched pattern
                 foundPattern = true;
                 break;
@@ -104,7 +104,7 @@ function input01() {
 
         if (!foundPattern) {
             // If no match is found, move to the next character
-            outputWord01 += `<div class="fade-out" style="display: inline-block;">${inputWord[i]}</div>`;
+            outputWord01 += inputWord[i];
             i++; // Move the index by 1
         }
     }
